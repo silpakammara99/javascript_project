@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brick Breaker Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+        }
+        form {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 2px solid #000;
+            border-radius: 15px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        }
+        #board {
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.1));
+            background-color:aliceblue;
+            border: 3px solid #000;
+            border-radius: 10px;
+            display: block;
+            margin: 20px auto;
+        }
+        #startBtn {
+            padding: 0.6em 2em;
+            border: none;
+            color: #fff;
+            background: linear-gradient(45deg, #ff6b6b, #f7b733);
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 1.2em;
+            transition: background 0.3s ease;
+        }
+        #startBtn:hover {
+            background: linear-gradient(45deg, #ff6b6b, #f7b733);
+        }
+        .alert-box {
+            background-color: #fff;
+            border: 2px solid #000;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        }
+        .alert-overlay {
+            background: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: none;
+        }
+        #countdownTimer {
+            font-size: 30px;
+            color: #333;
+            font-weight: bold;
+        }
+        #scoreboard {
+            display: none;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 2px solid #000;
+            border-radius: 15px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+        }
+        #scoreboard ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #scoreboard li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Ensure the path to the audio file is correct -->
+    <audio id="backgroundMusic" src="./music/just-relax-11157.mp3" loop></audio>
+    <form id="introForm">
+        <h2>Brick Breaker Game</h2>
+        <label for="name"><h4>Enter name to play:</h4></label>
+        <input type="text" id="name" placeholder="Enter name to start"><br><br>
+        <button id="startBtn" type="button">Start Game</button>
+    </form>
+    <div id="gameInfo" style="display: none;">
+        <canvas id="board"></canvas>
+        <p id="countdownTimer"></p>
+    </div>
+    <div class="alert-overlay" id="alertOverlay">
+        <div class="alert-box">
+            <p id="alertMessage"></p>
+            <button id="alertBtn">OK</button>
+        </div>
+    </div>
+    <div id="scoreboard">
+        <h3>Leaderboard</h3>
+        <ul id="scoreList"></ul>
+    </div>
+    
+    <script src="project.js"></script>
+</body>
+</html>
